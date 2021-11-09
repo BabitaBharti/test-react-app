@@ -24,7 +24,7 @@ jobs:
       run:  "xcodebuild -workspace ios/firstapp.xcworkspace -scheme firstapp -configuration Debug -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO CODE_SIGNING_ALLOWED=NO -derivedDataPath DerivedData -archivePath DerivedData/Archive/firstapp archive"
 
     - run: ls DerivedData/Archive/
-    - run: cp ios/main.jsbundle DerivedData/Archive/Product/Applications/firstapp.app/
+    - run: cp ios/main.jsbundle DerivedData/Archive/firstapp.xcarchive/Products/Applications/firstapp.app/
     
     
     - uses: actions/upload-artifact@v2
