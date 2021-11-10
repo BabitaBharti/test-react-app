@@ -14,13 +14,14 @@ jobs:
     - run: npm install
     - run: ls 
     - run: ls ios/
+    - run: ls ios/firstappTests/
     - run: xcode-select -p
     - run: pod install
       working-directory: ios
 
       name: Install pod dependencies
     - name: Run Tests
-      run: "xcodebuild -scheme firstapp -resultBundlePath TestResults test"
+      run: "xcodebuild -workspace ios/firstapp.xcworkspace -scheme firstapp -resultBundlePath TestResults test"
     - name: Build iOS (debug)
 #       run: "xcodebuild -workspace ios/firstapp.xcworkspace -scheme firstapp clean archive -sdk iphonesimulator -configuration Debug -UseModernBuildSystem=NO -archivePath DerivedData/Archive/firstapp CODE_SIGNING_ALLOWED=NO"
       run:  "xcodebuild -workspace ios/firstapp.xcworkspace -scheme firstapp -configuration Debug -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO CODE_SIGNING_ALLOWED=NO -derivedDataPath DerivedData -archivePath DerivedData/Archive/firstapp archive"
