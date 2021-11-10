@@ -20,7 +20,7 @@ jobs:
 
       name: Install pod dependencies
     - name: Test iOS (debug)
-      run:  "xcodebuild test -project ios/firstapp.xcodeproj -scheme firstapp -destination 'platform=iOS Simulator,name=iPhone 8,OS=13.3' "
+      run:  "xcodebuild test -project ios/firstapp.xcodeproj -scheme firstapp -destination 'platform=iOS Simulator,name=iPhone 8,OS=14.4' "
 
     - name: Build iOS (debug)
 #       run: "xcodebuild -workspace ios/firstapp.xcworkspace -scheme firstapp clean archive -sdk iphonesimulator -configuration Debug -UseModernBuildSystem=NO -archivePath DerivedData/Archive/firstapp CODE_SIGNING_ALLOWED=NO"
