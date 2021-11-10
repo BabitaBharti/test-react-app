@@ -20,7 +20,7 @@ jobs:
       working-directory: ios
 
       name: Install pod dependencies
-    - run: "xcodebuild test -project ios/firstapp.xcodeproj -scheme firstapp -destination 'platform=iOS Simulator,name=iPhone 8,OS=14.4'"
+    - run: "xcodebuild test -project ios/firstapp.xcodeproj -scheme firstapp "
 #     - name: Run Tests
 #       run: "xcodebuild -workspace ios/firstapp.xcworkspace -scheme firstapp -resultBundlePath TestResults test"
     - name: Build iOS (debug)
