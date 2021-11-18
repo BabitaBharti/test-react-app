@@ -7,6 +7,8 @@
     "bundle:ios": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios",
     "postinstall": "npm run bundle:ios",
     "start:appium": "appium",
+    "test": "E2E_DEVICE=\"*\" jest --testMatch=\"**/__tests__/**/!(*test.js)\"",
+    "test:e2e": "jest --testMatch=\"**/__tests__/**/*test.js\"",
     "test:e2e:ios": "E2E_DEVICE=\"ios-emulator\"  npm run test:e2e",
     "ios": "react-native run-ios",
     "start": "react-native start",
