@@ -12,26 +12,19 @@ jobs:
         node-version: 14.x
     
     - run: npm install
-    - run: ls 
-    - run: ls ios/
-    - run: ls ios/firstappTests/
+    - run: npm run start:appium
+    - run: npm run test:e2e:ios
     - run: xcode-select -p
+    
     - run: pod install
       working-directory: ios
-
       name: Install pod dependencies
-  #  - run: "xcodebuild test -project ios/firstapp.xcodeproj -scheme firstapp "
-    - name: Run Tests
-      run: npm test
-#       run: "xcodebuild -workspace ios/firstapp.xcworkspace -scheme firstapp -resultBundlePath TestResults test"
+
     - name: Build iOS (debug)
-#       run: "xcodebuild -workspace ios/firstapp.xcworkspace -scheme firstapp clean archive -sdk iphonesimulator -configuration Debug -UseModernBuildSystem=NO -archivePath DerivedData/Archive/firstapp CODE_SIGNING_ALLOWED=NO"
       run:  "xcodebuild -workspace ios/firstapp.xcworkspace -scheme firstapp -configuration Debug -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO CODE_SIGNING_ALLOWED=NO -derivedDataPath DerivedData -archivePath DerivedData/Archive/firstapp archive TEST_AFTER_BUILD=YES"
 
-    - run: ls DerivedData/Archive/
     - run: cp ios/main.jsbundle DerivedData/Archive/firstapp.xcarchive/Products/Applications/firstapp.app/
-    
-    
+
     - uses: actions/upload-artifact@v2
       with:
         name: my-artifact
