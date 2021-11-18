@@ -32,5 +32,15 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  	"e2e": {
+		"devices": {
+			"ios-emulator": {
+				"platformName": "iOS",
+				"platformVersion": "10.3",
+				"deviceName": "iPhone Simulator",
+				"app": "DerivedData/Archive/firstapp.xcarchive/Build/Products/Application/firstapp.app"
+      }
+    }
   }
 }
