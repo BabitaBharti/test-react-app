@@ -7,7 +7,7 @@
     "bundle:ios": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios",
     "postinstall": "npm run bundle:ios",
     "test": "jest",
-    "appium:ios": "DEVICE_TYPE=iOS mocha `find src test -name '__tests__\*test.js'`",
+    "appium:ios": "DEVICE_TYPE=iOS mocha `find src test -name '*-test.js'`",
     "start:appium": "appium",
     "ios": "react-native run-ios",
     "start": "react-native start",
