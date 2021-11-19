@@ -20,7 +20,7 @@ jobs:
 #           until $(curl --output /dev/null --silent --head --fail http://127.0.0.1:4723/wd/hub/sessions); do
 #             sleep 5
 #           done
-    - run: npm run appium:ios
+    - run: yarn run appium:ios
 
 #     - run: xcode-select -p
     
