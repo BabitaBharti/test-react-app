@@ -6,10 +6,9 @@
     "android": "react-native run-android",
     "bundle:ios": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios",
     "postinstall": "npm run bundle:ios",
+    "test": "jest",
+    "appium:ios": "DEVICE_TYPE=iOS mocha `find src test -name '__tests__\*test.js'`",
     "start:appium": "appium",
-    "test": "E2E_DEVICE=\"*\" jest --testMatch=\"**/__tests__/**/!(*test.js)\"",
-    "test:e2e": "jest --testMatch=\"**/__tests__/**/*test.js\"",
-    "test:e2e:ios": "E2E_DEVICE=\"ios-emulator\"  npm run test:e2e",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
@@ -34,15 +33,5 @@
   },
   "jest": {
     "preset": "react-native"
-  },
-  	"e2e": {
-		"devices": {
-			"ios-emulator": {
-				"platformName": "iOS",
-				"platformVersion": "10.3",
-				"deviceName": "iPhone Simulator",
-				"app": "DerivedData/Archive/firstapp.xcarchive/Build/Products/Application/firstapp.app"
-      }
-    }
   }
 }
