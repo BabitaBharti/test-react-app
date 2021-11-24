@@ -20,6 +20,7 @@ jobs:
       working-directory: ios
 
       name: Install pod dependencies
+    - run: |
         react-native run-ios --configuration Release
         mkdir ios/output
         find ~/Library/Developer/Xcode/DerivedData -type d -name "*.app" | grep -r Build/Products/Release-iphonesimulator/*.app | xargs -I '{}'  cp -r '{}' ios/output
