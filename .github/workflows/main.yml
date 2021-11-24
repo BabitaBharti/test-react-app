@@ -1,5 +1,7 @@
 name: iOS
 on: [push, pull_request]
+env:
+  APP_PATH: ios/output/firstapp.app
 jobs:
   build:
     runs-on: macos-latest
@@ -8,6 +10,7 @@ jobs:
 
     - name: APP cache
       id: app-cache
+      
       uses: actions/cache@v2
       with:
         path: ${{ env.APP_PATH }}
