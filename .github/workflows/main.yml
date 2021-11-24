@@ -18,8 +18,9 @@ jobs:
       with:
         node-version: 14.x
     
-    - run: |
+    - name: npm install 
       if: steps.app-cache.outputs.cache-hit != 'true'
+      run: |
         npm install
         npm install react-native-cli
 
