@@ -6,9 +6,7 @@
     "android": "react-native run-android",
     "bundle:ios": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios",
     "postinstall": "npm run bundle:ios",
-    "test": "jest",
-    "appium:ios": "DEVICE_TYPE=iOS mocha `find ./__tests__ -name 'App-test.js'`",
-    "start:appium": "appium",
+    
     "ios": "react-native run-ios --configuration Release",
     "start": "react-native start",
     "test": "jest",
@@ -28,9 +26,8 @@
     "eslint": "7.14.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.66.2",
-    "react-test-renderer": "17.0.2",
-    "mocha": "3.1.0",
-		"mocha-eslint": "3.0.1"
+    "react-test-renderer": "17.0.2"
+    
    
   },
   "jest": {
