@@ -14,7 +14,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ${{ env.APP_PATH }}
-        key: test-${{ hashFiles( 'index.js', 'metro.config.js',  'app.json', 'tsconfig.json', 'ios/Podfile', 'ios/Podfile.lock') }}
+        key: test-${{ hashFiles( 'index.js', 'metro.config.js',  'app.json', 'tsconfig.json', 'ios/Podfile', 'ios/Podfile.lock', 'yarn.lock') }}
 
     - name: Use Node.js
       uses: actions/setup-node@v1
@@ -23,9 +23,8 @@ jobs:
     
     - name: npm install 
       if: steps.app-cache.outputs.cache-hit != 'true'
-      run: |
-        npm install
-        npm install react-native-cli
+      run: yarn 
+        
 
     - name: Install pod dependencies
 
@@ -35,7 +34,7 @@ jobs:
 
       
 #     - run: |
-#         react-native run-ios --configuration Release
+#         yarn ios
 #         mkdir ios/output
 #         find ~/Library/Developer/Xcode/DerivedData -type d -name "*.app" | grep -r Build/Products/Release-iphonesimulator/*.app | xargs -I '{}'  cp -r '{}' ios/output
 
