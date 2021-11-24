@@ -31,12 +31,17 @@ jobs:
       if: steps.app-cache.outputs.cache-hit != 'true'
       run: pod install
       working-directory: ios
-
+    - name: Create and Run iOS Emulator       
+      run: |
+           xcrun simctl create iPhoneX com.apple.CoreSimulator.SimDeviceType.iPhone-X com.apple.CoreSimulator.SimRuntime.iOS-14-4 > udid.txt 
+           DEVICEUUID=`cat udid.txt`          
+           echo $DEVICEUUID                 
+           xcrun simctl boot $DEVICEUUID &
       
-#     - run: |
-#         yarn ios
-#         mkdir ios/output
-#         find ~/Library/Developer/Xcode/DerivedData -type d -name "*.app" | grep -r Build/Products/Release-iphonesimulator/*.app | xargs -I '{}'  cp -r '{}' ios/output
+    - run: |
+        yarn ios
+        mkdir ios/output
+        find ~/Library/Developer/Xcode/DerivedData -type d -name "*.app" | grep -r Build/Products/Release-iphonesimulator/*.app | xargs -I '{}'  cp -r '{}' ios/output
 
 #     - name: Build iOS (debug)
 #       run: "xcodebuild -workspace ios/firstapp.xcworkspace -scheme firstapp clean archive -sdk iphonesimulator -configuration Debug -UseModernBuildSystem=NO -archivePath DerivedData/Archive/firstapp CODE_SIGNING_ALLOWED=NO"
