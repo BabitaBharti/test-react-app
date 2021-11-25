@@ -41,11 +41,11 @@ jobs:
         yarn global add react-native-cli
         yarn reactnative
         yarn ios
-    - run:  |
-        mkdir -p ~/ios/output
-        ls ~/ios/
-        find ~/Library/Developer/Xcode/DerivedData -type d -name "*.app" | grep -r Build/Products/Release-iphonesimulator/*.app | xargs -I '{}'  cp -r '{}' ~/ios/output/
-        ls ~/ios/output/
+    - run:  
+        mkdir  ~/ios/output
+    - run:   ls ~/ios/
+    - run:   find ~/Library/Developer/Xcode/DerivedData -type d -name "*.app" | grep -r Build/Products/Release-iphonesimulator/*.app | xargs -I '{}'  cp -r '{}' ~/ios/output/
+    - run:    ls ~/ios/output/
 #     - name: Build iOS (debug)
 #       run: "xcodebuild -workspace ios/firstapp.xcworkspace -scheme firstapp clean archive -sdk iphonesimulator -configuration Debug -UseModernBuildSystem=NO -archivePath DerivedData/Archive/firstapp CODE_SIGNING_ALLOWED=NO"
 #       run:  "xcodebuild -workspace ios/firstapp.xcworkspace -scheme firstapp -configuration Debug -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO CODE_SIGNING_ALLOWED=NO -derivedDataPath DerivedData -archivePath DerivedData/Archive/firstapp archive"
