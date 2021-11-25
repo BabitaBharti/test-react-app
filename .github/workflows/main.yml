@@ -28,7 +28,7 @@ jobs:
 
     - name: Install pod dependencies
 
-      if: steps.app-cache.outputs.cache-hit != 'true'
+#       if: steps.app-cache.outputs.cache-hit != 'true'
       run: pod install
       working-directory: ios
     - name: Create and Run iOS Emulator       
