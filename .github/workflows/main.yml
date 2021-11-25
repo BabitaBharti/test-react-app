@@ -44,7 +44,7 @@ jobs:
     - run:  
         mkdir  ios/output
     - run:   ls ios/
-    - run: find  ~/Library/Developer/Xcode/DerivedData -type d -name "firstapp.app" -exec cp -r {} ios/output \;
+    - run: find  ~/Library/Developer/Xcode/DerivedData -type d -name "*.app" -exec cp -r {} ios/output \;
          
 
        # find ~/Library/Developer/Xcode/DerivedData -type d -name "firstapp.app" | grep -r Build/Products/Release-iphonesimulator/firstapp.app | xargs -I '{}'  cp -r '{}' ios/output/firstapp.app 
