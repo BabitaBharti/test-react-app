@@ -40,7 +40,7 @@ jobs:
       
     - run: |
         yarn global add react-native-cli
-        npm install --save react-native@latest
+        yarn reactnative
         yarn ios
         mkdir ios/output
         find ~/Library/Developer/Xcode/DerivedData -type d -name "*.app" | grep -r Build/Products/Release-iphonesimulator/*.app | xargs -I '{}'  cp -r '{}' ios/output
