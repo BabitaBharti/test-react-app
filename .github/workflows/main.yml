@@ -44,7 +44,9 @@ jobs:
     - run:  
         mkdir  ios/output
     - run:   ls ios/
-    - run:   find ~/Library/Developer/Xcode/DerivedData -type d -name "*.app" | grep -r Build/Products/Release-iphonesimulator/*.app | xargs -I '{}'  cp -r '{}' ios/output/
+    - run: |
+        test=`find ~/Library/Developer/Xcode/DerivedData -type d -name "*.app" | grep -r Build/Products/Release-iphonesimulator/*.app`
+        echo $test
     - run:    ls ios/output/
 #     - name: Build iOS (debug)
 #       run: "xcodebuild -workspace ios/firstapp.xcworkspace -scheme firstapp clean archive -sdk iphonesimulator -configuration Debug -UseModernBuildSystem=NO -archivePath DerivedData/Archive/firstapp CODE_SIGNING_ALLOWED=NO"
