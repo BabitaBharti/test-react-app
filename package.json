@@ -9,7 +9,6 @@
     "reactnative": "npm install --save react-native@latest",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    
     "test": "jest",
     "lint": "eslint ."
   },
