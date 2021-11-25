@@ -6,7 +6,7 @@
     
     "bundle:ios": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios",
     "postinstall": "npm run bundle:ios",
-    "reactnative": "npm install --save react-native@latest"
+    "reactnative": "npm install --save react-native@latest",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
